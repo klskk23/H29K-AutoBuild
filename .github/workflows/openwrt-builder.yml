@@ -126,8 +126,8 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
-        mkdir -p openwrt/release
-        cp -rf *.gz openwrt/release/ && cd openwrt/release/
+        mkdir -p release
+        mv  *.gz openwrt/release/ && cd release
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
