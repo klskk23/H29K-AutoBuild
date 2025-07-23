@@ -65,7 +65,8 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt || true
+        test -d openwrt || git clone $REPO_URL -b $REPO_BRANCH openwrt
+        cd openwrt && git pull
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
