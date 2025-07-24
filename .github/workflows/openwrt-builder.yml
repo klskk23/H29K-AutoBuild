@@ -62,7 +62,7 @@ jobs:
         # sudo chown $USER:$GROUPS /workdir
 
     - name: Clone source code
-      working-directory: $GITHUB_WORKSPACE/openwrt
+      working-directory: $GITHUB_WORKSPACE
       run: |
         df -hT $PWD
         test -d openwrt || git clone $REPO_URL -b $REPO_BRANCH openwrt
